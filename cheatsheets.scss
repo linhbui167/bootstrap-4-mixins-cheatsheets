@@ -1,0 +1,55 @@
+@import "bootstrap/variables";
+// GRID SYSTEM DEFAULT VAL
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1640px
+);
+
+/**** RESPONSIVE ****/
+@import "bootstrap/mixins/breakpoints";
+@include media-breakpoint-up($breakpoint-name, $breakpoints: $grid-breakpoints);
+@include media-breakpoint-down($breakpoint-name , $breakpoints: $grid-breakpoints) {};
+@include media-breakpoint-between($breakpoint-first , $breakpoint-last , $breakpoints: $grid-breakpoints) {};
+@include media-breakpoint-only($breakpoint-name) {};
+
+/**** GRID MIXINS ****/
+@import "bootstrap/mixins/clearfix";
+@import "bootstrap/mixins/grid";
+// clearfix quicly
+@include clearfix();
+@include make-container($gutters: $grid-gutter-widths); // Make selector become container
+@include make-row($gutters: $grid-gutter-widths); // Make selector become row
+@include make-col($size, $columns: $grid-columns);
+@include make-col-offset($size, $columns: $grid-columns);
+
+/***** IMAGE MIXINS *****/
+@import "bootstrap/mixins/image";
+@include img-fluid();
+@include img-retina($file-1x, $file-2x, $width-1x, $height-1x);
+
+/*** LISTS ***/
+@import "bootstrap/mixins/lists";
+@include list-unstyled();
+
+/*** SCREEN READER ***/
+@import "bootstrap/mixins/lists";
+@include sr-only();
+@include sr-only-focusable();
+
+/*** GRADIENT ***/
+@import "bootstrap/mixins/gradients";
+@include gradient-x($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%);
+@include gradient-y($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%);
+@include gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg);
+@include gradient-x-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f);
+@include gradient-y-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f);
+@include gradient-radial($inner-color: #555, $outer-color: #333);
+@include gradient-striped($color: rgba(255,255,255,.15), $angle: 45deg);
+
+/*** SIZE ***/
+@import "bootstrap/mixins/size";
+@include size($width, $height: $width);
